@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: test-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-app
+        image: test-controller:1.0-SNAPSHOT
+        env:
+        - name: my.system.property
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: my.system.property
+        ports:
+        - containerPort: 8081

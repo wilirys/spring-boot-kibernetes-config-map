@@ -1,0 +1,1 @@
+#### Using of Kibernetes Configmap in Spring Boot application
